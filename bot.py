@@ -6,7 +6,7 @@ from aiogram.enums import ParseMode
 
 import os
 
-TOKEN = 7839103259:AAFmxKA01JaiPIonoynWtwFjAZDwKnkttQo  # Используем переменную окружения
+TOKEN = "7839103259:AAFmxKA01JaiPIonoynWtwFjAZDwKnkttQo"
 bot = Bot(token=TOKEN, parse_mode=ParseMode.HTML)
 dp = Dispatcher()
 
