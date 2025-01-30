@@ -32,7 +32,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils import executor
 
-TOKEN = "ТВОЙ_ТОКЕН"
+TOKEN = "7839103259:AAFmxKA01JaiPIonoynWtwFjAZDwKnkttQo"
 bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
 
