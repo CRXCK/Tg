@@ -1,12 +1,21 @@
+import asyncio
 from aiogram import Bot, Dispatcher, types
-from aiogram.utils import executor
+from aiogram.types import Message
+from aiogram.filters import Command
+from aiogram.enums import ParseMode
 
-TOKEN = "YOUR_BOT_TOKEN"
-bot = Bot(token=TOKEN)
-dp = Dispatcher(bot)
+import os
 
-@dp.message_handler(commands=['start'])
-async def send_welcome(message: types.Message):
-    await message.reply("Привет! Я бот для доставки автотоваров в Мурманске.")
+TOKEN = os.getenv("TOKEN")  # Используем переменную окружения
+bot = Bot(token=TOKEN, parse_mode=ParseMode.HTML)
+dp = Dispatcher()
 
-executor.start_polling(dp, skip_updates=True)
+@dp.message(Command("start"))
+async def send_welcome(message: Message):
+    await message.answer("Привет! Я бот для доставки автотоваров в Мурманске.")
+
+async def main():
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
