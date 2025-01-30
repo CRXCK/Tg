@@ -74,3 +74,15 @@ async def buy_product(call: types.CallbackQuery):
                 return
 
     await call.answer("Ошибка: товар не найден.")
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+
+@dp.message_handler(commands=["catalog"])
+async def show_catalog(message: types.Message):
+    keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard.add(KeyboardButton("🛢 Моторные масла"))
+    keyboard.add(KeyboardButton("❄ Антифризы и охлаждающие жидкости"))
+    keyboard.add(KeyboardButton("🚗 Щетки стеклоочистителей"))
+    keyboard.add(KeyboardButton("🔧 Фильтры"))
+    keyboard.add(KeyboardButton("🧴 Автохимия"))
+
+    await message.answer("📦 Выберите категорию:", reply_markup=keyboard)
